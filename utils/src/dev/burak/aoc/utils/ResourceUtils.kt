@@ -5,7 +5,7 @@ import java.nio.file.Paths
 
 object ResourceUtils {
     fun readDataSet(clazz: Class<*>): List<String> {
-        val uri = clazz.getResource("dataset.txt")?.toURI() ?: throw Exception("Dataset not present")
+        val uri = clazz.getResource("dataset.txt")?.toURI() ?: error("Dataset not present")
         return Files.readAllLines(Paths.get(uri))
     }
 }
