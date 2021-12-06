@@ -1,7 +1,7 @@
 package dev.burak.aoc.day4
 
 import dev.burak.aoc.utils.ResourceUtils
-import java.util.*
+import java.util.LinkedList
 
 class GiantSquid
 

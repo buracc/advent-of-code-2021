@@ -1,8 +1,6 @@
 package dev.burak.aoc.day3
 
 import dev.burak.aoc.utils.ResourceUtils
-import java.nio.file.Files
-import java.nio.file.Path
 
 class BinaryDiagnostic
 
