@@ -5,6 +5,8 @@ import java.util.*
 
 class GiantSquid
 
+const val BOARD_SIZE = 5
+
 fun main() {
     val dataSet = ResourceUtils.readDataSet(GiantSquid::class.java)
 
@@ -14,8 +16,10 @@ fun main() {
 fun solve(dataSet: List<String>) {
     val pulledNumbers = dataSet.first().split(",").map { it.toInt() }
     val bingoBoards = dataSet
-        .filter { it != dataSet.first() && it.isNotBlank() }
-        .chunked(5)
+        .asSequence()
+        .drop(1)
+        .filter { it.isNotBlank() }
+        .chunked(BOARD_SIZE)
         .map { board ->
             board.map {
                 it.trim()
@@ -31,6 +35,7 @@ fun solve(dataSet: List<String>) {
         }.map {
             BingoBoard(it)
         }
+        .toList()
 
     val winners = LinkedList<BingoBoard>()
 
